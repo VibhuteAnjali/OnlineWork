@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FiArrowLeft, FiFileText, FiCheckCircle, FiAlertCircle, FiMail, FiLock } from 'react-icons/fi';
 import './TermsOfService.css';
 
@@ -105,10 +106,10 @@ const TermsOfService = () => {
       <div className="terms-hero">
         <div className="terms-hero-bg"></div>
         <div className="terms-container">
-          <a href="/" className="back-link" onClick={(e) => { e.preventDefault(); window.history.back(); }}>
+          <Link to="/" className="back-link">
             <FiArrowLeft />
             <span>Back to Home</span>
-          </a>
+          </Link>
           <div className="terms-hero-content">
             <div className="terms-icon-wrapper">
               <div className="terms-icon-bg"></div>

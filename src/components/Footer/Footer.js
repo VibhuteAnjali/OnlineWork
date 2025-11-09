@@ -1,57 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { FiMail, FiTwitter, FiLinkedin, FiGithub, FiYoutube } from 'react-icons/fi';
-import PrivacyPolicy from '../PrivacyPolicy/PrivacyPolicy';
-import TermsOfService from '../TermsOfService/TermsOfService';
 import './Footer.css';
 
 const Footer = () => {
-  const [showPrivacy, setShowPrivacy] = useState(false);
-  const [showTerms, setShowTerms] = useState(false);
-
-  const handleLinkClick = (href, e) => {
-    if (href === '#privacy') {
-      e.preventDefault();
-      setShowPrivacy(true);
-      window.scrollTo(0, 0);
-    } else if (href === '#terms') {
-      e.preventDefault();
-      setShowTerms(true);
-      window.scrollTo(0, 0);
-    }
-  };
-
-  if (showPrivacy) {
-    return <PrivacyPolicy />;
-  }
-
-  if (showTerms) {
-    return <TermsOfService />;
-  }
-
   const footerLinks = {
     product: [
-      { name: 'Features', href: '#features' },
-      { name: 'Pricing', href: '#pricing' },
-      { name: 'For Teams', href: '#teams' },
-      { name: 'Resources', href: '#resources' }
+      { name: 'Features', href: '#features', isRoute: false },
+      { name: 'Pricing', href: '#pricing', isRoute: false },
+      { name: 'For Teams', href: '#teams', isRoute: false },
+      { name: 'Resources', href: '#resources', isRoute: false }
     ],
     company: [
-      { name: 'About Us', href: '#about' },
-      { name: 'Blog', href: '#blog' },
-      { name: 'Careers', href: '#careers' },
-      { name: 'Contact', href: '#contact' }
+      { name: 'About Us', href: '#about', isRoute: false },
+      { name: 'Blog', href: '#blog', isRoute: false },
+      { name: 'Careers', href: '#careers', isRoute: false },
+      { name: 'Contact', href: '#contact', isRoute: false }
     ],
     support: [
-      { name: 'Help Center', href: '#help' },
-      { name: 'Documentation', href: '#docs' },
-      { name: 'Community', href: '#community' },
-      { name: 'Status', href: '#status' }
+      { name: 'Help Center', href: '#help', isRoute: false },
+      { name: 'Documentation', href: '#docs', isRoute: false },
+      { name: 'Community', href: '#community', isRoute: false },
+      { name: 'Status', href: '#status', isRoute: false }
     ],
     legal: [
-      { name: 'Privacy Policy', href: '#privacy' },
-      { name: 'Terms of Service', href: '#terms' },
-      { name: 'Cookie Policy', href: '#cookies' },
-      { name: 'Unsubscribe', href: '#unsubscribe' }
+      { name: 'Privacy Policy', href: '/privacy-policy', isRoute: true },
+      { name: 'Terms of Service', href: '/terms-of-service', isRoute: true },
+      { name: 'Cookie Policy', href: '#cookies', isRoute: false },
+      { name: 'Unsubscribe', href: '#unsubscribe', isRoute: false }
     ]
   };
 
@@ -91,7 +67,11 @@ const Footer = () => {
               <ul className="footer-list">
                 {footerLinks.product.map((link, index) => (
                   <li key={index}>
-                    <a href={link.href} className="footer-link" onClick={(e) => handleLinkClick(link.href, e)}>{link.name}</a>
+                    {link.isRoute ? (
+                      <Link to={link.href} className="footer-link">{link.name}</Link>
+                    ) : (
+                      <a href={link.href} className="footer-link">{link.name}</a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -102,7 +82,11 @@ const Footer = () => {
               <ul className="footer-list">
                 {footerLinks.company.map((link, index) => (
                   <li key={index}>
-                    <a href={link.href} className="footer-link" onClick={(e) => handleLinkClick(link.href, e)}>{link.name}</a>
+                    {link.isRoute ? (
+                      <Link to={link.href} className="footer-link">{link.name}</Link>
+                    ) : (
+                      <a href={link.href} className="footer-link">{link.name}</a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -113,7 +97,11 @@ const Footer = () => {
               <ul className="footer-list">
                 {footerLinks.support.map((link, index) => (
                   <li key={index}>
-                    <a href={link.href} className="footer-link" onClick={(e) => handleLinkClick(link.href, e)}>{link.name}</a>
+                    {link.isRoute ? (
+                      <Link to={link.href} className="footer-link">{link.name}</Link>
+                    ) : (
+                      <a href={link.href} className="footer-link">{link.name}</a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -124,7 +112,11 @@ const Footer = () => {
               <ul className="footer-list">
                 {footerLinks.legal.map((link, index) => (
                   <li key={index}>
-                    <a href={link.href} className="footer-link" onClick={(e) => handleLinkClick(link.href, e)}>{link.name}</a>
+                    {link.isRoute ? (
+                      <Link to={link.href} className="footer-link">{link.name}</Link>
+                    ) : (
+                      <a href={link.href} className="footer-link">{link.name}</a>
+                    )}
                   </li>
                 ))}
               </ul>

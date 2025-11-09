@@ -1,24 +1,25 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
-import Hero from './components/Hero/Hero';
-import About from './components/About/About';
-import Features from './components/Features/Features';
-import ForTeams from './components/ForTeams/ForTeams';
-import Blog from './components/Blog/Blog';
 import Footer from './components/Footer/Footer';
+import Home from './pages/Home';
+import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
+import TermsOfService from './components/TermsOfService/TermsOfService';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Hero />
-      <About />
-      <Features />
-      <ForTeams />
-      <Blog />
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

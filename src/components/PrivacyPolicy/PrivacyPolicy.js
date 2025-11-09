@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FiArrowLeft, FiShield, FiLock, FiEye, FiMail } from 'react-icons/fi';
 import './PrivacyPolicy.css';
 
@@ -103,10 +104,10 @@ const PrivacyPolicy = () => {
       <div className="privacy-hero">
         <div className="privacy-hero-bg"></div>
         <div className="privacy-container">
-          <a href="/" className="back-link" onClick={(e) => { e.preventDefault(); window.history.back(); }}>
+          <Link to="/" className="back-link">
             <FiArrowLeft />
             <span>Back to Home</span>
-          </a>
+          </Link>
           <div className="privacy-hero-content">
             <div className="privacy-icon-wrapper">
               <div className="privacy-icon-bg"></div>
