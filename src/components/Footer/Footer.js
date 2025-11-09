@@ -61,21 +61,6 @@ const Footer = () => {
 
           <div className="footer-links">
             <div className="footer-column">
-              <h4 className="footer-column-title">Product</h4>
-              <ul className="footer-list">
-                {footerLinks.product.map((link, index) => (
-                  <li key={index}>
-                    {link.isRoute ? (
-                      <Link to={link.href} className="footer-link" onClick={handleRouteClick}>{link.name}</Link>
-                    ) : (
-                      <a href={link.href} className="footer-link">{link.name}</a>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="footer-column">
               <h4 className="footer-column-title">Company</h4>
               <ul className="footer-list">
                 {footerLinks.company.map((link, index) => (
