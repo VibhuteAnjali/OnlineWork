@@ -4,6 +4,10 @@ import { FiMail, FiTwitter, FiLinkedin, FiGithub, FiYoutube } from 'react-icons/
 import './Footer.css';
 
 const Footer = () => {
+  const handleRouteClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const footerLinks = {
     product: [
       { name: 'Features', href: '#features', isRoute: false },
@@ -68,7 +72,7 @@ const Footer = () => {
                 {footerLinks.product.map((link, index) => (
                   <li key={index}>
                     {link.isRoute ? (
-                      <Link to={link.href} className="footer-link">{link.name}</Link>
+                      <Link to={link.href} className="footer-link" onClick={handleRouteClick}>{link.name}</Link>
                     ) : (
                       <a href={link.href} className="footer-link">{link.name}</a>
                     )}
@@ -83,7 +87,7 @@ const Footer = () => {
                 {footerLinks.company.map((link, index) => (
                   <li key={index}>
                     {link.isRoute ? (
-                      <Link to={link.href} className="footer-link">{link.name}</Link>
+                      <Link to={link.href} className="footer-link" onClick={handleRouteClick}>{link.name}</Link>
                     ) : (
                       <a href={link.href} className="footer-link">{link.name}</a>
                     )}
@@ -98,7 +102,7 @@ const Footer = () => {
                 {footerLinks.support.map((link, index) => (
                   <li key={index}>
                     {link.isRoute ? (
-                      <Link to={link.href} className="footer-link">{link.name}</Link>
+                      <Link to={link.href} className="footer-link" onClick={handleRouteClick}>{link.name}</Link>
                     ) : (
                       <a href={link.href} className="footer-link">{link.name}</a>
                     )}
@@ -113,7 +117,7 @@ const Footer = () => {
                 {footerLinks.legal.map((link, index) => (
                   <li key={index}>
                     {link.isRoute ? (
-                      <Link to={link.href} className="footer-link">{link.name}</Link>
+                      <Link to={link.href} className="footer-link" onClick={handleRouteClick}>{link.name}</Link>
                     ) : (
                       <a href={link.href} className="footer-link">{link.name}</a>
                     )}
